@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Logowanie {% endblock %}
+{% block header %}
+<h1 style="size:4em"><a href="login.html">Test Yourself!</a></h1>
+{% endblock %}
+{% block content %}
+
+<div class="teaser" style="width: 600px;">
+    <p style="padding-bottom:1%">Witaj w aplikacji do przeprowadzania spersonalizowanych testów online.</p>
+    <form role="form" action="." method="POST">
+        <fieldset>
+            <div class="row">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                                <input class="form-control" placeholder="Nazwa użytkownika" name="username" 
+                                       id="id_username" type="text" autofocus required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <input class="form-control" placeholder="Hasło" name="password" type="password" value="" id="id_password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Zaloguj się!">
+                        </div>
+                        {% csrf_token %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="panel-footer ">
+    Nie posiadasz konta? <a href="registration" onClick=""> Zarejestruj się! </a>
+</div>
+
+{% endblock %}

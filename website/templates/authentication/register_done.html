@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Rejestracja zakończona sukcesem {% endblock %}
+{% block content %}
+<div class="teaser" style="width: 45%;">
+    <h3>Witaj, {{ new_user.first_name }}!</h3>
+    <p> Twoje konto zostało utworzone. Możesz się już <a href="{% url "login" %}">zalogować</a>.</p>
+</div>
+
+{% endblock %}
