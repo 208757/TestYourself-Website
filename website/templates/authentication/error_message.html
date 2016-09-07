@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Rejestracja zakończona sukcesem {% endblock %}
+{% block content %}
+<div class="teaser" style="width: 45%;">
+    <h2>Ups! W formularzu znaleziono błędy :(</h2>
+    {% for label, error in errors.items %}
+        <h4>{{ label }}</h4>
+        {% for item in error %}
+            {{ item }}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+{% endblock %}

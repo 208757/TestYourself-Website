@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegistrationForm
 
 
-# Create your views here.
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -24,7 +23,6 @@ def user_login(request):
             else:
                 return HttpResponse("Nieprawidłowe dane uwierzytelniające.")
     else:
-        form = LoginForm()
         return render(request, 'authentication/login.html')
 
 
@@ -38,16 +36,26 @@ def user_registration(request):
                 new_user.set_password(cd['password'])
                 new_user.save()
                 return render(request, "authentication/register_done.html", {
-                    'new_user': new_user
-                    })
+                    'new_user': new_user})
             else:
-                return HttpResponse("Nie utworzono konta")
+                return render(request, "authentication/error_message.html", {
+                    "errors": {"password2": ["Podałeś różne hasła"]}})
         else:
                 print(form.errors)
-                return HttpResponse("Nie prawidłowy formularz")
-
+                print(type(form.errors))
+                for x in form.errors.items():
+                    print(x)
+                return render(request, "authentication/error_message.html", {
+                    "errors": form.errors})
     else:
-        form = RegistrationForm()
-        print(form.as_p())
+        parameters = [("id_username", "username", "Nazwa użytkownika", "glyphicon glyphicon-user", "text"),
+            ("id_first_name", "first_name", "Imię", "glyphicon glyphicon-user", "text"),
+            ("id_last_name", "last_name", "Nazwisko", "glyphicon glyphicon-user", "text"),
+            ("id_email", "email", "Adres e-mail", "glyphicon glyphicon-envelope", "text"),
+            ("id_password", "password", "Hasło", "glyphicon glyphicon-lock", "password"),
+            ("id_password2", "password2", "Powtórz hasło", "glyphicon glyphicon-lock", "password")
+        ]
+
         return render(request, 'authentication/registration.html', {
-            'user_form': form})
+            'parameters': parameters
+        })
