@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from .forms import LoginForm, RegistrationForm
 
 
@@ -59,3 +60,19 @@ def user_registration(request):
         return render(request, 'authentication/registration.html', {
             'parameters': parameters
         })
+
+def validate(request, username, email_address):
+    parameters = {"username": True, "email": True}
+    if username == ".":
+        parameters["username"] = False
+    if email_address == ".":
+        parameters["email"] = False
+    for user in User.objects.all():
+        if username != "." and user.get_username() == username:
+            parameters["username"] = False
+        if user.email == email_address:
+            parameters["email"] = False
+    return JsonResponse(parameters)
+
+def startpage(request):
+    return render(request, 'app/event.html')

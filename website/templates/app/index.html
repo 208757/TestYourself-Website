@@ -1,0 +1,167 @@
+{% extends "nhbase.html" %}
+{% load static %}
+{% block title %} Witaj w aplikacji TestYourself! {% endblock %}
+{% block content %}
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">TestYourself!</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="#">Przegląd</a></li>
+            <li><a href="#">Zarządzanie wydarzenia</a></li>
+            <li><a href="#">Zarządzanie grupami</a></li>
+            <li><a href="#">Zarządzanie testami</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin-right: 2em">Ustawienia użytkownika
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dane użytkownika</a></li>
+                    <li><a href="#">Zmień hasło</a></li>
+                    <li><a href="#">Wyloguj</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <table class="table table-condensed table-hover">
+                <caption>Ostatnie 5 stworzonych testów:</caption>
+                <thead>
+                    <tr>
+                        <th>Nr:</th>
+                        <th>Nazwa testu:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td>
+                        <td>b</td>
+                    </tr>
+                    <tr><td>2</td>
+                        <td>b</td>
+                    </tr>
+                    <tr><td>3</td>
+                        <td>b</td>
+                    </tr>
+                    <tr><td>4</td>
+                       <td>c</td>
+                   </tr>
+                   <tr><td>5</td>
+                    <td>b</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed table-hover">
+            <caption>Ostatnie 5 założonych grup:</caption>
+            <thead>
+                <tr>
+                    <th>Nr:</th>
+                    <th>Nazwa grupy:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td>
+                    <td>b</td>
+                </tr>
+                <tr><td>2</td>
+                    <td>b</td>
+                </tr>
+                <tr><td>3</td>
+                    <td>b</td>
+                </tr>
+                <tr><td>4</td>
+                   <td>c</td>
+               </tr>
+               <tr><td>5</td>
+                <td>b</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-6">
+    <table class="table table-condensed table-hover">
+        <caption>Ostatnie 5 wydarzeń w których wziąłeś udział:</caption>
+        <thead>
+            <tr>
+                <th>Nr:</th>
+                <th>Data:</th>
+                <th>Nazwa wydarzenia:</th>
+                <th>Wynik:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+            </tr>
+            <tr><td>2</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+            <tr><td>3</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+            <tr><td>4</td>
+                <td>c</td>
+                <td>b</td>
+                <td>c</td>
+            </tr>
+            <tr><td>5</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-condensed table-hover">
+        <caption>Ostatnie 5 stworzonych przez Ciebie wydarzeń:</caption>
+        <thead>
+            <tr>
+                <th>Nr:</th>
+                <th>Data:</th>
+                <th>Nazwa wydarzenia:</th>
+                <th>Wynik:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+            <tr><td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+            <tr><td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+            <tr><td>a</td>
+                <td>c</td>
+                <td>b</td>
+                <td>c</td>
+            </tr>
+            <tr><td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>c</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

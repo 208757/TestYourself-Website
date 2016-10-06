@@ -6,8 +6,18 @@
 {% block title %} Rejestracja {% endblock %}
 {% block content %}
 <div class="teaser" style="width: 45%;">
-    <script> validateForm() </script>
+    <script>
+        validateForm.previous_username = "";
+        validateForm.previous_mail = "";
+        validateForm.previous_password = "";
+        validateForm.previous_password2 = "";
+
+        setInterval(validateForm, 1000);
+    </script>
     <h3>Rejestracja</h3>
+    <div id="errorUserAndEmail"></div>
+    <div id="errorPassword"></div>
+    <br>
     <form role="form" action="." method="POST">
         {% csrf_token %}
         <fieldset>
@@ -20,12 +30,12 @@
                                     <span class="input-group-addon">
                                         <i class="{{ i.3 }}"></i>
                                     </span>
-                                    <input class="form-control" placeholder="{{ i.2}}" name="{{ i.1 }}" id="{{ i.0 }}" type="{{ i.4 }}" autofocus>
+                                    <input class="form-control" placeholder="{{ i.2}}" name="{{ i.1 }}" id="{{ i.0 }}" type="{{ i.4 }}" autofocus required>
                                 </div>
                             </div>
                         {% endfor %}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Zarejestruj się!">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Zarejestruj się!" id="id_register" disabled="false">
                         </div>
                     </div>
                 </div>
